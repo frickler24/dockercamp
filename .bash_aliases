@@ -20,7 +20,5 @@ alias doch='sudo $(history -p !-1)'
 
 alias gl="git log --graph --decorate --color"
 alias gls="git shortlog --graph --decorate --color"
-alias dr="docker -H baerchen:4000 "
-alias dc="docker -H clown:4000 "
 alias gs="git status"
 
