@@ -1,0 +1,18 @@
+FROM alpine
+
+LABEL maintainer="frickler24@frickler24.de"
+
+# Als erstes mal ein paar Tools und das notwendige PHP-Geraffel laden und installieren
+# Die erste Zeile ist ein Linux-Patchday:
+RUN apk update
+RUN apk add bash curl wget vim
+RUN apk add nginx php php-fpm php-gd
+
+# Verzeichnisse anlegen, falls noch nicht vorhanden
+# Unter /run/php merkt sich der php-fpm nachherseine Prozess-ID
+RUN mkdir -p /run/php/
+RUN mkdir -p /run/nginx/
+
+# Starte phpfp und dann nginx so, dass er im Vordergrund bleibt
+CMD /bin/sh -c "echo 'starte php-fpm' && php-fpm7 && echo 'Starte nginx' && nginx -g 'daemon off;' && echo panic"
+

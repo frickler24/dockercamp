@@ -34,5 +34,5 @@ COPY mandel.php /usr/share/nginx/html/mandel.php
 COPY brot.php /usr/share/nginx/html/brot.php
 
 # Starte phpfp und dann nginx so, dass er im Vordergrund bleibt
-CMD /bin/sh -c "php-fpm7.0 && echo 'Starting nginx' && nginx -g 'daemon off;' && echo 'nginx stopped.'"
+CMD /bin/sh -c "php-fpm7.3 && echo 'Starting nginx' && nginx -g 'daemon off;' && echo 'nginx stopped.'"
 
